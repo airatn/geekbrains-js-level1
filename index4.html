@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Урок 4</title>
+    <link rel="stylesheet" href=style.css>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+</head>
+<body>
+    <a href="index.html" class="labe-box">
+        <img src="images/geekbrains-logo.png" height="50" width="46">
+    </a>
+    <!-- УРОК 1 -->
+    <a href="index1.html" class="menu-lesson" style="top: 98px;">
+        <img src="images/1.svg" height="40" width="40">
+        Урок 1
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 2 -->
+    <a href="index2.html" class="menu-lesson" style="top: 176px;">
+        <img src="images/2.svg" height="40" width="40">
+        Урок 2
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 3 -->
+    <a href="index3.html" class="menu-lesson" style="top: 254px;">
+        <img src="images/3.svg" height="40" width="40">
+        Урок 3
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 4 -->
+    <a href="index4.html" class="menu-lesson" style="top: 332px;">
+        <img src="images/4.svg" height="40" width="40">
+        Урок 4
+        <div class="overlay-select"></div>
+    </a>
+    <!-- УРОК 5 -->
+    <a href="index5.html" class="menu-lesson" style="top: 410px;">
+        <img src="images/5.svg" height="40" width="40">
+        Урок 5
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 6 -->
+    <a href="index6.html" class="menu-lesson" style="top: 488px;">
+        <img src="images/6.svg" height="40" width="40">
+        Урок 6
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 7 -->
+    <a href="index7.html" class="menu-lesson" style="top: 566px;">
+        <img src="images/7.svg" height="40" width="40">
+        Урок 7
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 8 -->
+    <a href="index8.html" class="menu-lesson" style="top: 644px;">
+        <img src="images/8.svg" height="40" width="40">
+        Урок 8
+        <div class="overlay"></div>
+    </a>
+
+    <div class="work-area">
+        <img src="images/labeJavaScript.png" height="45" width="45" style="float: left; margin: 10px 15px 0 0;">
+        <h1>JavaScript. Уровень 1. Домашняя работа.</h1>
+        <h2>Урок 4. Функции.</h2>
+        <hr>
+
+        <!-- Урок 4. Задание 1 -->
+        <div class="task">
+            <h2>Задание 1.</h2>
+            <p>Напишите функцию min, принимающую два аргумента, и возвращающую минимальный из них.</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw4.1t.png" style='display: block; width:634px; margin: 10px 0 20px 15px;'>
+            </div>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw4.1.png" style="display: block; width:570px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                // целое случайно число от min до max
+                function getIntRandomArbitary(min, max) {
+                    return Math.round(Math.random() * (max - min) + min);
+                }
+
+                // минимальное из двух чисел
+                function min( n1, n2 ) {
+                  return n1 <= n2 ? n1 : n2;
+                }
+                
+                var result = ""; var n1, n2;
+                for (var i = 1; i <= 10; i++) {
+                    n1 = getIntRandomArbitary(-100,100);
+                    n2 = getIntRandomArbitary(-100,100);
+                    result +=   "min ( " + n1 + " , " + n2 + " ) = " + min( n1, n2) + "<br>";
+                }
+                
+                var theElement = document.getElementById("task41");
+                theElement.innerHTML = result;
+
+            ' class="button-test">Проверить на случайном ряде числовых пар</button>
+            <div id="task41" style="padding: 15px;"></div>
+        </div>
+
+        <!-- Урок 4. Задание 2 -->
+        <div class="task">
+            <h2>Задание 2.</h2>
+            <p>Символ номер <b>N</b> строки можно получить, добавив к ней <b>.charAt(N)</b> – схожим образом с
+                получением длины строки при помощи <b>.length</b>. Возвращаемое значение будет строковым, состоящим из одного символа
+                (к примеру, “к”). У первого символа строки позиция <b>0</b>, что означает, что у последнего символа позиция будет
+                <b>string.length – 1</b>. Другими словами, у строки из двух символов длина 2, а позиции её символов будут 0 и 1.<br>
+                 Напишите функцию <b>countBs</b>, которая принимает строку в качестве аргумента, и возвращает количество символов “B”,
+                содержащихся в строке. <br> Затем напишите функцию <b>countChar</b>, которая работает примерно как <b>countBs</b>,
+                только принимает второй параметр — символ, который мы будем искать в строке (вместо того,
+                чтобы просто считать количество символов “B”). Для этого переделайте функцию <b>countBs</b>.
+            </p>
+            <hr>
+            <!-- Решение a)-->
+            <h3>Решение первой задачи:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw4.2a.png" style="display: block; width:750px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                var testString = ["Другими","словами","строки","двух","символов","длина","позиции","символов","будут",
+                "Напишите","функцию","принимает","строку","качестве","аргумента","возвращает","количество","символов"];
+
+                //количество символов "в", "В" (латинские и русские) в строке
+                function countB(str) {
+                    var counter = 0;
+                    for (var i = 0; i < str.length; i++) {
+                        if (str[i] == "в" || str[i] == "B" || str[i] == "b" || str[i] == "B") {
+                            counter++;
+                        }
+                    }
+                    return counter;
+                }
+
+                var result = "";
+
+                for (var i = 0; i < testString.length; i++) {
+                    result += "countB ( " + testString[i] + " ) = " + countB(testString[i]) + "<br>";
+                }
+
+                var theElement = document.getElementById("task42a");
+                theElement.innerHTML = result;
+
+            ' class="button-test">Проверить на тестовом ряде</button>
+            <div id="task42a" style="padding: 15px;"></div>
+
+            <!-- Решение b)-->
+            <h3>Решение второй задачи:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw4.2b.png" style="display: block; width:780px;  margin: 10px auto 20px 15px;">
+            </div>
+            <p style="color:brown; margin-left: 15px;">Введите искомую букву:
+
+                <input type="text" size="1" id = "symbol" style="padding: 5px 15px; background-color: rgba(165, 42, 42, 0.11); font-size: 14px;">
+                <button onclick='
+
+                var testString = ["Другими","словами","строки","двух","символов","длина","позиции","символов","будут",
+                "Напишите","функцию","принимает","строку","качестве","аргумента","возвращает","количество","символов"];
+
+                //количество символов в передаваемом симоволе в строке
+                function countSymbol(str, symbol) {
+                    var counter = 0;
+                    for (var i = 0; i < str.length; i++) {
+                        if (str[i] == symbol[0]) {
+                            counter++;
+                        }
+                    }
+                    return counter;
+                }
+
+                var result = "";
+
+                for (var i = 0; i < testString.length; i++) {
+                    result += "countSymbol ( " + testString[i] + ", " + document.getElementById("symbol").value + " ) = " +
+                    countSymbol(testString[i], document.getElementById("symbol").value) + "<br>";
+                }
+
+                var theElement = document.getElementById("task42b");
+                theElement.innerHTML = result;
+
+                ' class="button-test">Проверить на тестовом ряде</button>
+            </p>
+            <div id="task42b" style="padding: 15px;"></div>
+        </div>
+
+        <!-- Урок 4. Задание 3 -->
+        <div class="task">
+            <h2>Задание 3.</h2>
+            <p>Ноль чётный. Единица нечётная. У любого числа <b>N</b> чётность такая же, как у <b>N-2</b>.
+                <i>Напишите рекурсивную функцию <b>isEven</b> согласно этим правилам</i>.
+                Она должна принимать число и возвращать булевское значение.
+                Потестируйте её на <b>50</b> и <b>75</b>. <i>Попробуйте задать ей <b>-1</b>.
+                Почему она ведёт себя таким образом? Можно ли её как-то исправить?</i>
+            </p>
+            <hr>
+            <!-- Решение a) -->
+            <h3>Решение первой задачи:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw4.3a.png" style="display: block; width:460px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                function isEven (number) {
+                    if (number == 0) {
+                        return true;
+                    } else {
+                        if (number == 1) {
+                            return false;
+                        } else {
+                            return isEven(number - 2);
+                        }
+                     }
+                }
+
+                var result = "";
+                for (var n = 50; n <= 75; n++) {
+                    result += "isEven ( " + n + " ) = " + isEven(n) + "<br>";
+                }
+
+                var theElement = document.getElementById("task43a");
+                theElement.innerHTML = result;
+
+            ' class="button-test">Тестирование от 50 до 75</button>
+            <div id="task43a" style="padding: 15px;"></div>
+
+            <!-- Решение b) -->
+            <h3>Решение второй задачи:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw4.3b.png" style="display: block; width:580px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                // целое случайно число от min до max
+                function getIntRandomArbitary(min, max) {
+                    return Math.round(Math.random() * (max - min) + min);
+                }
+
+                //Рекурсивная функция определения четности
+                function isEven (number) {
+                    if (number == 0) {
+                        return true;
+                    } else {
+                        if (number == 1) {
+                            return false;
+                        } else {
+                            return isEven(number > 0 ? number - 2 : number + 2); //изменения
+                        }
+                     }
+                }
+
+                var result = "";
+                for (var i = 1; i <= 20; i++) {
+                    n = getIntRandomArbitary(-100, 100);
+                    result += "isEven ( " + n + " ) = " + isEven(n) + "<br>";
+                }
+
+                var theElement = document.getElementById("task43b");
+                theElement.innerHTML = result;
+
+            ' class="button-test">Тестирование на случайных числах</button>
+            <div id="task43b" style="padding: 15px;"></div>
+
+        </div>
+
+        <hr>
+        <p style="text-align: right; font-size: 12px; padding-right: 10px;">Айрат Нурутдинов &copy;</p>
+    </div>
+</body>
+</html>

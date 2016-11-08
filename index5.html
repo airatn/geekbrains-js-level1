@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Урок 5</title>
+    <link rel="stylesheet" href=style.css>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="main.js"></script>
+
+</head>
+<body>
+    <a href="index.html" class="labe-box">
+        <img src="images/geekbrains-logo.png" height="50" width="46">
+    </a>
+    <!-- УРОК 1 -->
+    <a href="index1.html" class="menu-lesson" style="top: 98px;">
+        <img src="images/1.svg" height="40" width="40">
+        Урок 1
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 2 -->
+    <a href="index2.html" class="menu-lesson" style="top: 176px;">
+        <img src="images/2.svg" height="40" width="40">
+        Урок 2
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 3 -->
+    <a href="index3.html" class="menu-lesson" style="top: 254px;">
+        <img src="images/3.svg" height="40" width="40">
+        Урок 3
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 4 -->
+    <a href="index4.html" class="menu-lesson" style="top: 332px;">
+        <img src="images/4.svg" height="40" width="40">
+        Урок 4
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 5 -->
+    <a href="index5.html" class="menu-lesson" style="top: 410px;">
+        <img src="images/5.svg" height="40" width="40">
+        Урок 5
+        <div class="overlay-select"></div>
+    </a>
+    <!-- УРОК 6 -->
+    <a href="index6.html" class="menu-lesson" style="top: 488px;">
+        <img src="images/6.svg" height="40" width="40">
+        Урок 6
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 7 -->
+    <a href="index7.html" class="menu-lesson" style="top: 566px;">
+        <img src="images/7.svg" height="40" width="40">
+        Урок 7
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 8 -->
+    <a href="index8.html" class="menu-lesson" style="top: 644px;">
+        <img src="images/8.svg" height="40" width="40">
+        Урок 8
+        <div class="overlay"></div>
+    </a>
+
+    <div class="work-area">
+        <img src="images/labeJavaScript.png" height="45" width="45" style="float: left; margin: 10px 15px 0 0;">
+        <h1>JavaScript. Уровень 1. Домашняя работа.</h1>
+        <h2>Урок 5. Структуры данных.</h2>
+        <hr>
+
+        <!-- Урок 5. Задание 1 -->
+        <div class="task">
+            <h2>Задание 1.</h2>
+            <p>Написать функцию преобразования <span style="color: blue;">цвета</span> из <b>10-ного</b> представления в <b>16-ный</b>.
+                Функция должна принимать <b>3</b> числа от <b>0</b> до <b>255</b> и возвращать строковый хеш.
+            </p>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw5.1.png" style="display: block; width:600px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                // Функция преобразования десятичных цветов в шестнадцатеричные
+                // Параметры 10-ые (int) - red, green, blue
+                // Выходные 16-ые (строковые) - .red, .green, .blue, .hex (в формате #RGB).
+                function colorDECtoHEX (red, green, blue) {
+                    var object = {};
+                    object.hex   = (256*256*red + 256*green + blue).toString(16);
+                    if (object.hex.length == 5) {               //Если red будет меньше 10
+                        object.hex   = "#0" + object.hex;
+                    } else {
+                        object.hex   = "#" + object.hex;
+                    }
+                    return object;
+                }
+
+                //ТЕСТИРОВАНИЕ НА СЛУЧАЙНОМ РЯДЕ
+
+                // целое случайно число от min до max
+                function getIntRandomArbitary(min, max) {
+                    return Math.round(Math.random() * (max - min) + min);
+                }
+
+                var result = "";
+                var red, green, blue;
+
+                for (var i = 1; i <= 20; i++) {
+                    red   = getIntRandomArbitary(0, 255);
+                    green = getIntRandomArbitary(0, 255);
+                    blue  = getIntRandomArbitary(0, 255);
+
+                    var randomHEXcolor = colorDECtoHEX(red, green, blue);
+
+                    result += "colorDECtoHEX ( " + red + " , " + green + " , " + blue + " ) => "
+                            + "<span style= \"color:" + randomHEXcolor.hex + ";\">"
+                            + " .hex = " + randomHEXcolor.hex
+                            + "</span><br>";
+                }
+
+                // АНИМИРОВАННЫЙ ВЫВОД
+                ainimationResult(result, "task51");
+
+            ' class="button-test">Random тестирование</button>
+            <div id="task51" style="padding: 15px;"></div>
+        </div>
+
+        <!-- Урок 5. Задание 2 -->
+        <div class="task">
+            <h2>Задание 2.</h2>
+            <p>Написать функцию, преобразующую <i>число в объект</i>. Передавая на вход <b>число от 0 до 999</b>, мы должны получить
+                на выходе объект, в котором <b>в соответствующих свойствах описаны единицы, десятки и сотни</b>. Например для числа
+                <b>245</b> мы должны получить следующий объект: <b>{‘единицы’: 5, ‘десятки’: 4, 'сотни’: 2}</b>. Если число превышает
+                <b>999</b>, необходимо выдать соответствующее <b>сообщение с помощью console.log и вернуть пустой объект</b>.
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw5.2.png" style="display: block; width:670px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                // Функция преобразования целого числа 0...999 в объект имеющий структуру:
+                // {"единицы": цифра, "десятки": цифра, "сотни": цифра}
+                // если число не в диапазоне, то сообщение в console.log и возврат пустого объекта
+                function numberToObject999 (number) {
+                    var object = {};
+                    if (number < 0 || number > 999) {
+                        console.log("Функция numberToObject999: число не в диапазоне");
+                    } else {
+                        object["сотни"] = Math.floor(number / 100);
+                        object["десятки"] = Math.floor((number - 100*object.сотни) / 10);
+                        object["единицы"] = Math.floor( number - 100*object.сотни - 10*object.десятки);
+                    }
+                    return object;
+                }
+
+                //ТЕСТИРОВАНИЕ НА СЛУЧАЙНОМ РЯДЕ
+
+                // целое случайно число от min до max
+                function getIntRandomArbitary(min, max) {
+                    return Math.round(Math.random() * (max - min) + min);
+                }
+
+                var result = "";
+                var number;
+                var object = {};
+                for (var i = 1; i <= 20; i++) {
+                    number = getIntRandomArbitary(-100,1100);
+                    object = numberToObject999(number);
+                    result += "numberToObject999 ( " + number + " ) => [\"единицы\"] = " + object["единицы"]
+                    + "; [\"десятки\"] = " + object["десятки"]
+                    + "; [\"сотни\"] = " + object["сотни"] + "<br>";
+                }
+
+                // АНИМИРОВАННЫЙ ВЫВОД
+                ainimationResult(result, "task52");
+
+            ' class="button-test">Random тестирование</button>
+            <div id="task52" style="padding: 15px;"></div>
+        </div>
+
+        <!-- Урок 5. Задание 3 -->
+        <div class="task">
+            <h2>Задание 3.</h2>
+            <p>Реализовать функцию <b>objectToQueryString(object)</b>, которая <b>принимает аргументом объект, возвращает строку</b>.
+                Примеры работы:</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw5.3t.png" style='display: block; width:680px; margin: 10px 0 20px 15px;'>
+            </div>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw5.3.png" style="display: block; width:750px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                // Функция преобразования object в string где
+                // string формируется как ключ1=значение2&ключ2=значение2&ключ3=значение3
+                function objectToQueryString (object) {
+                    var string = "";
+                    for (key in object) {
+                        string += key + "=" + object[key] + "&";
+                    }
+                    if (string != "") {
+                        string = string.substring(0, string.length - 1);   //удаляем лишний "&"
+                    }
+                    return string;
+                }
+
+                //ТЕСТИРОВАНИЕ НА СЛУЧАЙНОМ РЯДЕ
+
+                // целое случайно число от min до max
+                function getIntRandomArbitary(min, max) {
+                    return Math.round(Math.random() * (max - min) + min);
+                }
+                var testString = ["Другими","словами","строки","двух","символов","длина","позиции","символов","будут",
+                "Напишите","функцию","принимает","строку","качестве","аргумента","возвращает","количество","символов"];
+
+                var result = "";
+                for (var i = 1; i <= 20; i++) {
+                    //форимрование объекта
+                    var object = {};
+                    for (var j = 1; j <= getIntRandomArbitary(0,7); j++) {
+                        object[testString[getIntRandomArbitary(0,testString.length-1)]] =
+                               testString[getIntRandomArbitary(0,testString.length-1)]
+                    }
+                    result += "objectToQueryString ( random object ) = " + objectToQueryString(object) + "<br>";
+                }
+
+                // АНИМИРОВАННЫЙ ВЫВОД
+                ainimationResult(result, "task53");
+
+            ' class="button-test">Random тестирование</button>
+            <div id="task53" style="padding: 15px; word-wrap: break-word";></div>
+        </div>
+
+        <hr>
+        <p style="text-align: right; font-size: 12px; padding-right: 10px;">Айрат Нурутдинов &copy;</p>
+    </div>
+</body>
+</html>

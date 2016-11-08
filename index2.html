@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Урок 2</title>
+    <link rel="stylesheet" href=style.css>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+
+</head>
+<body>
+    <a href="index.html" class="labe-box">
+        <img src="images/geekbrains-logo.png" height="50" width="46">
+    </a>
+    <!-- УРОК 1 -->
+    <a href="index1.html" class="menu-lesson" style="top: 98px;">
+        <img src="images/1.svg" height="40" width="40">
+        Урок 1
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 2 -->
+    <a href="index2.html" class="menu-lesson" style="top: 176px;">
+        <img src="images/2.svg" height="40" width="40">
+        Урок 2
+        <div class="overlay-select"></div>
+    </a>
+    <!-- УРОК 3 -->
+    <a href="index3.html" class="menu-lesson" style="top: 254px;">
+        <img src="images/3.svg" height="40" width="40">
+        Урок 3
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 4 -->
+    <a href="index4.html" class="menu-lesson" style="top: 332px;">
+        <img src="images/4.svg" height="40" width="40">
+        Урок 4
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 5 -->
+    <a href="index5.html" class="menu-lesson" style="top: 410px;">
+        <img src="images/5.svg" height="40" width="40">
+        Урок 5
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 6 -->
+    <a href="index6.html" class="menu-lesson" style="top: 488px;">
+        <img src="images/6.svg" height="40" width="40">
+        Урок 6
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 7 -->
+    <a href="index7.html" class="menu-lesson" style="top: 566px;">
+        <img src="images/7.svg" height="40" width="40">
+        Урок 7
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 8 -->
+    <a href="index8.html" class="menu-lesson" style="top: 644px;">
+        <img src="images/8.svg" height="40" width="40">
+        Урок 8
+        <div class="overlay"></div>
+    </a>
+
+    <div class="work-area">
+        <img src="images/labeJavaScript.png" height="45" width="45" style="float: left; margin: 10px 15px 0 0;">
+        <h1>JavaScript. Уровень 1. Домашняя работа.</h1>
+        <h2>Урок 2. Основные операторы Javascript.</h2>
+        <hr>
+
+        <!-- Урок 2. Задание 1 -->
+        <div class="task">
+            <h2>Задание 1.</h2>
+            <p>Есть такой код:<p>
+            <img src="images/hw2.1t.png" style='display: block; width: 257px; margin: 10px 0 20px 15px;'>
+            <p>Необходимо разобраться почему работает именно так. Объяснения написать в виде комментария к каждой строчке</p>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw2.1.png" style="width: 730px; margin: 10px 0 20px 15px;">
+            </div>
+        </div>
+
+        <!-- Урок 2. Задание 2 -->
+        <div class="task">
+            <h2>Задание 2.</h2>
+            <p>Чему будет равен x в примере ниже?</p>
+            <img src="images/hw2.2t.png" style='display: block; width:200px; margin: 10px 0 20px 15px;'>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw2.2.png" style="display: block; width:466px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+                var a = 2;
+                var x = 1 + (a *= 2);
+                alert("x = " + x);
+            ' class="button-test">Проверить ответ</button>
+        </div>
+
+        <!-- Урок 2. Задание 3 -->
+        <div class="task">
+            <h2>Задание 3.</h2>
+            <p>Забегая немного вперед. Напишите программу, которая выводит через <b>console.log</b> <i>все числа от 1 до 100</i>,
+                с двумя исключениями. Для <i>чисел, нацело делящихся на 3</i>, она должна выводить <b>‘Fizz’</b>, а для <i>чисел,
+                делящихся на 5 (но не на 3)</i> – <b>‘Buzz’</b>. Когда сумеете – исправьте её так, чтобы она выводила
+                <b>«FizzBuzz»</b> для всех <i>чисел, которые делятся и на 3 и на 5</i>.
+            </p>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw2.3.png" style="display: block; width:435px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                var result = "Итоговый ряд: ";
+                for (var i = 1; i <= 100; i++) {
+                    if (i % 15 == 0) {
+                       result += "FizzBuzz" + ", ";
+                    } else {
+                    if (i % 5 == 0) {
+                       result += "Buzz" + ", ";
+                    } else {
+                    if (i % 3 == 0) {
+                       result += "Fizz" + ", ";
+                    } else {
+                       result += i + ", ";
+                }}}}
+                var theElement = document.getElementById("task31");
+                theElement.innerHTML = result.slice(0, result.length - 2);
+
+            ' class="button-test">Вывести результат</button>
+            <div id="task31" style="padding: 15px;"></div>
+        </div>
+
+        <hr>
+        <p style="text-align: right; font-size: 12px; padding-right: 10px;">Айрат Нурутдинов &copy;</p>
+    </div>
+</body>
+</html>

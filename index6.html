@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Урок 6</title>
+    <link   rel="stylesheet" href=style.css>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&amp;subset=cyrillic" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+<body>
+    <a href="index.html" class="labe-box">
+        <img src="images/geekbrains-logo.png" height="50" width="46">
+    </a>
+    <!-- УРОК 1 -->
+    <a href="index1.html" class="menu-lesson" style="top: 98px;">
+        <img src="images/1.svg" height="40" width="40">
+        Урок 1
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 2 -->
+    <a href="index2.html" class="menu-lesson" style="top: 176px;">
+        <img src="images/2.svg" height="40" width="40">
+        Урок 2
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 3 -->
+    <a href="index3.html" class="menu-lesson" style="top: 254px;">
+        <img src="images/3.svg" height="40" width="40">
+        Урок 3
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 4 -->
+    <a href="index4.html" class="menu-lesson" style="top: 332px;">
+        <img src="images/4.svg" height="40" width="40">
+        Урок 4
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 5 -->
+    <a href="index5.html" class="menu-lesson" style="top: 410px;">
+        <img src="images/5.svg" height="40" width="40">
+        Урок 5
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 6 -->
+    <a href="index6.html" class="menu-lesson" style="top: 488px;">
+        <img src="images/6.svg" height="40" width="40">
+        Урок 6
+        <div class="overlay-select"></div>
+    </a>
+    <!-- УРОК 7 -->
+    <a href="index7.html" class="menu-lesson" style="top: 566px;">
+        <img src="images/7.svg" height="40" width="40">
+        Урок 7
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 8 -->
+    <a href="index8.html" class="menu-lesson" style="top: 644px;">
+        <img src="images/8.svg" height="40" width="40">
+        Урок 8
+        <div class="overlay"></div>
+    </a>
+
+    <!-- КОНТЕКСТНАЯ ОБЛАСТЬ --- КОНТЕКСТНАЯ ОБЛАСТЬ --- КОНТЕКСТНАЯ ОБЛАСТЬ -->
+    <div style="background-color: black; margin: 0 0 0 100px; padding: 7px 10px 1px 10px; color: white;">
+        <img src="images/labeJavaScript.png" height="50" width="50" style="float: left; margin: 15px 15px 0 0;">
+        <h1>JavaScript. Уровень 1. Домашняя работа.</h1>
+    </div>
+    <div class="work-area">
+        <!-- УРОК 6. ЗАДАНИЕ 1 -->
+        <h2>Урок 6. Объекты. Контекст вызова.</h2>
+            <h3><b>Задание 1.</b> Однонаправленные списки.</h3>
+            <p>Объекты могут быть использованы для построения различных структур данных.
+                Часто встречающаяся структура – список (не путайте с массивом).
+                <b>Список – связанный набор объектов, где первый объект содержит ссылку на второй, второй – на третий, и т.п.</b>
+            </p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1t.png" style='display: block; width:682px; margin: 10px 0 20px 15px;'>
+            </div>
+            <p>Списки удобны тем, что они могут делиться частью своей структуры. Например, можно сделать два списка,
+                <b>{value: 0, rest: list}</b> и <b>{value: -1, rest: list}</b>, где <b>list</b> – это ссылка на ранее объявленную переменную.
+                Это два независимых списка, при этом у них есть общая структура <b>list</b>, которая включает три последних элемента каждого
+                из них. Кроме того, оригинальный список также сохраняет свои свойства как отдельный список из трёх элементов.</p>
+            <p> Напишите:</p>
+                <ul>
+                    <li>функцию <b>arrayToList</b>, которая строит такую структуру, получая в качестве аргумента <b>[1, 2, 3]</b>,</li>
+                    <li>функцию <b>listToArray</b>, которая создаёт массив из списка <i>(обратное преобразование)</i>,</li>
+                    <li>вспомогательную функцию <b>prepend</b>, которая получает элемент и создаёт новый список,
+                        где этот элемент добавлен спереди к первоначальному списку,</li>
+                    <li>и функцию <b>nth</b>, которая в качестве аргументов принимает список и число,
+                        а возвращает элемент на заданной позиции в списке, или же undefined в случае отсутствия такого элемента.</li>
+                </ul>
+            </p>
+            <hr>
+            <!--  ПОЭТАПНОЕ РЕШЕНИЕ -->
+            <h3><b>Решение:</b></h3>
+            <p><b>Однонаправленный (односвязный) список</b> – это структура данных, представляющая собой <i>последовательность элементов,
+                в каждом из которых хранится значение и указатель на следующий элемент списка</i>. В последнем элементе указатель
+                на следующий элемент равен <b>NULL</b>.</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1p1.png" style="display: block; width:554px;  margin: 10px auto 20px 15px;">
+            </div>
+            <p>Далее будет использоваться понятие "конструктор", которое хорошо разъясняется в  <a href="https://learn.javascript.ru/constructor-new">cоздание объектов через "new"</a>.</p>
+            <p>Создаем два <b>конструктора</b>:</p>
+            <ul>
+                <li>с именем <b>ListNode</b>:
+                    <img src="images/hw6.1p2.png" style="display: block; width:380px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+                    Каждый экземпляр узла <b>должен «уметь» хранить данные и указывать на другой узел</b>. Чтобы добавить эти функции,
+                        мы определяем два свойства: <b>data</b> и <b>next</b>, соответственно.</li><br>
+                <li>и с именем <b>SinglyList:</b>
+                    <img src="images/hw6.1p3.png" style="display: block; width:320px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+                    Каждый экземпляр <b>SinglyList</b> будет иметь два свойства: <b>_length</b> и <b>head</b>.
+                    Первое устанавливает <b>число узлов в списке</b>; второй - <b>указывает на головной элемент списка</b> (узел в начале списка).
+                    Так как каждый новый экземпляр <b>SinglyList</b> не содержит узла, то значение по умолчанию для <b>head</b> и для <b>_length</b> будет <b>null</b>.</li>
+            </ul>
+
+        <div class="attention">
+            <p>Далее будет представлена последовательность из <b>5-ти этапов</b>. Каждый из которых содержит следующие блоки :</p>
+            <ul>
+                <li>поясняющий текст ,</li>
+                <li>использованный код JS ,</li>
+                <li>кнопка генерация контекста, которые также будут использоваться <b>для следующих этапов ,</b></li>
+                <li>анимированное отображение результатов.</li>
+            </ul>
+            <p>Так как каждый последующий этап использует результаты предыдущего, для получения корректного результата
+                необходимо выполнение нажатия на кнопки в каждом этапе последовательно. На кнопку можно нажимать <b>многократно</b> для получния нового результата.</p>
+        </div>
+
+            <!-- *1* Генерация тестового массива -->
+            <h3><b>1-ый этап.</b> Генерация нового <b>тестового массива</b>.</h3>
+            <p>Использованный код: </p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1a1.png" style="display: block; width:600px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+            </div>
+            <button onclick='
+
+                initTEST_ARRAY()                                    //создание тестового массива
+                ainimationResult(TEST_ARRAY.toHTML(), "task61");    //анимированный вывод
+
+            ' class="button-test">Сгенерировать и отобразить <b>тестовый массив</b>.</button>
+            <div id="task61" style="padding: 15px;"></div>
+
+            <!-- *2* Добавления узла в список и создание списка из массива -->
+            <h3><b>2-ой этап.</b> Добавления узла в список и создание списка из массива.</h3>
+                <p>Реализуем метод добавления узла в список (<i>Применяется метод <b>prototype</b>, что позволяет сделать его
+                    наследуемым при использовании функции <b>new</b>).</i></p>
+                <div style="overflow: scroll;">
+                    <img src="images/hw6.1a2.png" style="display: block; width:660px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+                </div>
+                <p>Функция создания списка из массива.</p>
+                <div style="overflow: scroll;">
+                    <img src="images/hw6.1a3.png" style="display: block; width:600px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+                </div>
+                <p>Метод визуализации списков.</p>
+                <div style="overflow: scroll;">
+                    <img src="images/hw6.1a4.png" style="display: block; width:940px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+                </div>
+
+                <button onclick='
+
+                SINGLY_LIST = arrayToList(TEST_ARRAY);     //создание тестового массива
+                ainimationResult(SINGLY_LIST.toHTML(), "task62");   //анимированный вывод
+
+            ' class="button-test">Если Вы создали <b>тестовый массив</b>, то создать <b>тестовый список</b> из массива.</button>
+            <div id="task62" style="padding: 15px;"></div>
+
+
+            <!-- *3* Обратное преобразование списка в массив. -->
+            <h3><b>3-ий этап.</b> Обратное преобразование списка в массив.</h3>
+            <p>Использованный код: </p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1a5.png" style="display: block; width:630px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+            </div>
+            <button onclick='
+
+                var newArray = listToArray(SINGLY_LIST);          //создание массива на основе массива
+                ainimationResult(newArray.toHTML(), "task63");    //анимированный вывод
+
+            ' class="button-test">Если Вы создали <b>тестовый список</b>, то преобразовать в массив и отобразить.</button>
+            <div id="task63" style="padding: 15px;"></div>
+
+
+            <!-- *4* Копирование списка, добавление нового элемента в начало. -->
+            <h3><b>4-ий этап.</b> Копирование списка, добавление нового элемента в начало.</h3>
+            <p>Копирование списка:</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1a6.png" style="display: block; width:700px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+            </div>
+            <p>Добавление элемента в начало списка:</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1a7.png" style="display: block; width:680px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+            </div>
+            <p>Пример кода:</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1a8.png" style="display: block; width:910px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+            </div>
+            <button onclick='
+
+                    var newSinglyList = SINGLY_LIST.copy();                                     //копирование списка
+                    newSinglyList.addFirts(getIntRandomArbitary(100,10000));                    //добавление первого элемента
+                    ainimationResult("<p>Тестовый список:</p>" + SINGLY_LIST.toHTML()
+                        + "<p>Новый список с добавленным первым элементом:</p>" + newSinglyList.toHTML(), "task64");    //анимированный вывод
+
+                ' class="button-test">Если Вы создали <b>тестовый список</b>, то добавить узел со случайным содержимым и отобразить.</button>
+            <div id="task64" style="padding: 15px;"></div>
+
+
+            <!-- *5* Вывод элемента списка по заданной позиции. -->
+            <h3><b>5-ий этап.</b> Вывод элемента списка по заданной позиции.</h3>
+            <p>Получение элемента из списка по индексу:</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1a9.png" style="display: block; width:700px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+            </div>
+            <p>Тестирование метода:</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw6.1a10.png" style="display: block; width:820px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+            </div>
+            <button onclick='
+
+                    var index = getIntRandomArbitary(-10, 60);
+                    var listNode = SINGLY_LIST.nth(index);
+                    if (listNode === undefined) {
+                        ainimationResult("<p>Случайный индекс: <b>" + index + "</b>. Узла с таким индексом нет.</p>", "task65");
+                    } else {
+                        ainimationResult("<p>Случайный индекс: <b>" + index + "</b> соответствует узлу -  "
+                        + listNode.toHTML() + "</p>", "task65");    //анимированный вывод
+                    }
+
+                ' class="button-test">Если Вы создали <b>тестовый список</b>, то сгенерировать случайный индекс и вывести элемент.</button>
+            <div id="task65" style="padding: 15px;"></div>
+
+
+            <p><i>Использованы материалы из статьи <a href="http://www.intuit.ru/studies/courses/648/504/lecture/11456?page=1">
+                Динамические структуры данных: однонаправленные и двунаправленные списки</a>, а также
+                <a href="http://www.internet-technologies.ru/articles/article_2599.html">Структурирование данных с помощью JavaScript</a></i></p>
+    </div>
+    <div style="background-color:#e4e4e4; padding: 15px; margin: 0 0 0 100px;"></div>
+    <div class="work-area">
+        <!-- УРОК 6. ЗАДАНИЕ 2 -->
+        <h3><b>Задание 2.</b>Обратное пребразование массива (reverse).</h3>
+        <p>Напишите две функции,  <b>reverseArray</b> и <b>reverseArrayInPlace</b>. Первая получает массив как аргумент и выдаёт новый массив,
+            с обратным порядком элементов. Вторая работает как оригинальный метод <b>reverse</b> – она меняет порядок элементов на обратный
+            в том массиве, который был ей передан в качестве аргумента. Не используйте стандартный метод <b>reverse</b></p>
+        <hr>
+        <!-- РЕШЕНИЕ -->
+        <h3><b>Решение:</b></h3>
+        <p>Получение нового массива с обратным порядком элементом :</p>
+        <div style="overflow: scroll;">
+            <img src="images/hw6.1a11.png" style="display: block; width:670px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+        </div>
+        <p>Изменяет передаваемый массив, изменяя порядок элементов на обратный :</p>
+        <div style="overflow: scroll;">
+            <img src="images/hw6.1a12.png" style="display: block; width:600px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+        </div>
+        <button onclick='
+
+                    //Генерация тестового массива TEST_ARRAY
+                    initTEST_ARRAY();
+                    var resultHTML = "<p>Тестовый массив: " + TEST_ARRAY.toHTML() + "</p>";
+
+                    //Функция создания нового массива с обратным порядком элементов:
+                    function reverseArray (array) {
+                        newArray = [];
+                        array.forEach(function(item, index){
+                            newArray.push(array[array.length-index-1]);
+                        });
+                        return newArray
+                    }
+                    resultHTML += "<p>Новый массив сгенерированный функцией reverseArray(TEST_ARRAY): " 
+                            + reverseArray(TEST_ARRAY).toHTML() + "</p>";
+                   
+                    
+                    //Новый метод Array изменяющий порядок элментов на обратный
+                    Array.prototype.reverseLesson = function () {
+                        var tmpR = reverseArray(this);
+                        var tmpA = this;                        //внутри forEach свой this
+                        tmpR.forEach(function(item, index){ tmpA[index] = item; });
+                    }
+                    TEST_ARRAY.reverseLesson();
+                    resultHTML += "<p>Тестовый массив после метода .reverseLesson: "
+                            + TEST_ARRAY.toHTML() + "</p>";
+                    
+                    ainimationResult(resultHTML, "task66");  //анимированный вывод
+
+                ' class="button-test">Сгенерировать тестовый массив, выполнить задания и вывести результат.</button>
+        <div id="task66" style="padding: 15px;"></div>
+    </div>
+        <div style="background-color:#e4e4e4; padding: 15px; margin: 0 0 0 100px;"></div>
+    <div class="work-area">
+        <!-- УРОК 6. ЗАДАНИЕ 3 -->
+        <h3><b>Задание 3.</b> Функция сверки ключей объекта.</h3>
+        <p>Реализовать функцию <b>pick(obj, keys)</b>, которая принимает аргументами объект и массив строк (названия ключей).
+            Возвращает новый объект, куда вошли все ключи, указанные в массиве <b>keys</b>, и соответствующие значения из объекта <b>obj</b>.
+            Если в объекте <b>obj</b>, нет ключа, указанного в массиве <b>keys</b>, в результирующем объекте этот ключ не должен присутствовать.</p>
+        <div style="overflow: scroll;">
+            <img src="images/hw6.3t.png" style="display: block; width:679px;  margin: 10px auto 20px 15px;">
+        </div>
+
+        <hr>
+        <!-- РЕШЕНИЕ -->
+        <h3><b>Решение:</b></h3>
+        <p>Итоговый код :</p>
+        <div style="overflow: scroll;">
+            <img src="images/hw6.3a.png" style="display: block; width:850px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+        </div>
+        <button onclick='
+
+
+                var testString = ["Другими","словами","строки","двух","символов","длина","позиции","символов","будут",
+                "Напишите","функцию","принимает","строку","качестве","аргумента","возвращает","количество","символов"];
+
+                //Генерация тестового объекта
+                var TEST_OBJECT = {};
+                for (var i = 0; i < getIntRandomArbitary(1,testString.length - 1); i++) {
+                    TEST_OBJECT[testString [getIntRandomArbitary(0,testString.length - 1)]] =
+                                testString [getIntRandomArbitary(0,testString.length -1)];
+                }
+                var resultHTML = "<p>Тестовый <b>obj</b>: " + ObjecttoHTML(TEST_OBJECT) + "</p>";
+
+                //Генерация тестового набора ключей
+                var TEST_KEY = [];
+                for (var i = 0; i < getIntRandomArbitary(1,testString.length - 1); i++) {
+                    TEST_KEY.push(testString [getIntRandomArbitary(0,testString.length - 1)]);
+                }
+                resultHTML += "<p>Тестовый массив <b>keys</b>: " + TEST_KEY.toHTML() + "</p>";
+
+                //Функция сверки ключей
+                function pick(obj,keysArray) {
+                    var newObj = {};
+                    for (var key in obj) {              // Перебор свойств объекта
+                        if (keysArray.indexOf(key) != -1) {    // есть ли это значение в массиве?
+                            newObj[key] = obj[key];
+                        }
+                    }
+                    return newObj;
+                }
+                resultHTML += "<p>Итог работы <b>pick(obj,keysArray)</b>: " + ObjecttoHTML(pick(TEST_OBJECT, TEST_KEY)) + "</p>";
+
+                ainimationResult(resultHTML, "task67");  //анимированный вывод
+
+                ' class="button-test">Сгенерировать объект и ключи, вывести итог работы функции сверки ключей. Нажмите повторно.</button>
+        <div id="task67" style="padding: 15px;"></div>
+
+    </div>
+    <div style="background-color: black; margin: 0 0 0 100px; padding: 15px; font-family: 'PT Sans', sans-serif; color:white">
+        <span style="font-size: 12px;;">Copiright &copy; Aйрат Нурутдинов</span>
+        <a href="mailto:airatn.gmail.com">
+            <span style="float: right; font-size: 12px; padding-right: 30px; text-decoration: none; color: white;">Для контактов</span>
+            <img src="images/email.svg" width="25" style="float: right; margin-right: 10px;">
+        </a>
+    </div>
+</body>
+</html>

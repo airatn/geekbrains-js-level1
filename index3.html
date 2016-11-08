@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Урок     3</title>
+    <link rel="stylesheet" href=style.css>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <a href="index.html" class="labe-box">
+        <img src="images/geekbrains-logo.png" height="50" width="46">
+    </a>
+    <!-- УРОК 1 -->
+    <a href="index1.html" class="menu-lesson" style="top: 98px;">
+        <img src="images/1.svg" height="40" width="40">
+        Урок 1
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 2 -->
+    <a href="index2.html" class="menu-lesson" style="top: 176px;">
+        <img src="images/2.svg" height="40" width="40">
+        Урок 2
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 3 -->
+    <a href="index3.html" class="menu-lesson" style="top: 254px;">
+        <img src="images/3.svg" height="40" width="40">
+        Урок 3
+        <div class="overlay-select"></div>
+    </a>
+    <!-- УРОК 4 -->
+    <a href="index4.html" class="menu-lesson" style="top: 332px;">
+        <img src="images/4.svg" height="40" width="40">
+        Урок 4
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 5 -->
+    <a href="index5.html" class="menu-lesson" style="top: 410px;">
+        <img src="images/5.svg" height="40" width="40">
+        Урок 5
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 6 -->
+    <a href="index6.html" class="menu-lesson" style="top: 488px;">
+        <img src="images/6.svg" height="40" width="40">
+        Урок 6
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 7 -->
+    <a href="index7.html" class="menu-lesson" style="top: 566px;">
+        <img src="images/7.svg" height="40" width="40">
+        Урок 7
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 8 -->
+    <a href="index8.html" class="menu-lesson" style="top: 644px;">
+        <img src="images/8.svg" height="40" width="40">
+        Урок 8
+        <div class="overlay"></div>
+    </a>
+
+    <div class="work-area">
+        <img src="images/labeJavaScript.png" height="45" width="45" style="float: left; margin: 10px 15px 0 0;">
+        <h1>JavaScript. Уровень 1. Домашняя работа.</h1>
+        <h2>Урок 3. Условные операторы. Циклы.</h2>
+        <hr>
+
+        <!-- Урок 3. Задание 1 -->
+        <div class="task">
+            <h2>Задание 1.</h2>
+            <p>Владея навыками написания циклов и условных операторов, выполните задание из предыдущего урока
+                используя тернарный оператор.
+            </p>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw3.1.png" style="display: block; width:385px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+                var result = "Итоговый ряд: ";
+                for (var i = 1; i <= 100; i++) {
+                    var newItem = "";
+                    newItem += (i % 3) == 0 ? "Fizz" : "" ;
+                    newItem += (i % 5) == 0 ? "Buzz" : "" ;
+                    newItem = newItem == "" ? i : newItem;
+                    result += newItem + (i==100 ? "." : ", ");
+                }
+                var theElement = document.getElementById("task31");
+                theElement.innerHTML = result;
+            ' class="button-test">Вывести результат</button>
+            <div id="task31" style="padding: 15px;"></div>
+        </div>
+
+        <!-- Урок 2. Задание 2 -->
+        <div class="task">
+            <h2>Задание 2.</h2>
+            <p>Напишите цикл,  выводит такой треугольник:</p>
+            <div style="overflow: scroll;">
+                <img src="images/hw3.2t.png" style='display: block; width:636px; margin: 10px 0 20px 15px;'>
+            </div>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw3.2.png" style="display: block; width:400px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+                var piramida = "";
+                for (var y = 1; y <= 7; y++) {
+                    var newRow = "";
+                    for (var x = 1; x <= y; x++) {
+                        newRow += "&#9899";
+                    }
+                    newRow += "<br>";
+                    piramida += newRow;
+                }
+                var theElement = document.getElementById("task32");
+                theElement.innerHTML = piramida;
+            ' class="button-test">Вывести результат</button>
+            <div id="task32" style="padding: 15px;"></div>
+        </div>
+
+        <!-- Урок 3. Задание 3 -->
+        <div class="task">
+            <h2>Задание 3.</h2>
+            <p>Напишите программу, создающую строку, содержащую решётку 8х8, в которой линии разделяются символами новой строки.
+                На каждой позиции либо пробел, либо #. В результате должна получиться шахматная доска.
+            </p>
+            <hr>
+            <!-- Решение -->
+            <h3>Решение:</h3>
+            <div style="overflow: scroll;">
+                <img src="images/hw3.3.png" style="display: block; width:301px;  margin: 10px auto 20px 15px;">
+            </div>
+            <button onclick='
+
+                var chessboard = "";
+                for (var y = 1; y <= 8; y++) {
+                    var newRow = "";
+                    for (var x = 1; x <= 4; x++) {
+                        if (y % 2 == 0) {
+                            newRow += "&#9899&#9898";
+                        } else {
+                            newRow += "&#9898&#9899";
+                        }
+                    }
+                    newRow += "<br>";
+                    chessboard += newRow;
+                }
+                var theElement = document.getElementById("task33");
+                theElement.innerHTML = chessboard;
+
+            ' class="button-test">Вывести результат</button>
+            <div id="task33" style="padding: 15px;"></div>
+        </div>
+
+        <hr>
+        <p style="text-align: right; font-size: 12px; padding-right: 10px;">Айрат Нурутдинов &copy;</p>
+    </div>
+</body>
+</html>
