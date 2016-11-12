@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Урок 7</title>
+    <link   rel="stylesheet" href=style.css>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&amp;subset=cyrillic" rel="stylesheet">
+    <script src="main.js"></script>
+
+</head>
+<body>
+    <a href="index.html" class="labe-box">
+        <img src="images/geekbrains-logo.png" height="50" width="46">
+    </a>
+    <!-- УРОК 1 -->
+    <a href="lesson1.html" class="menu-lesson" style="top: 98px;">
+        <img src="images/1.svg" height="40" width="40">
+        Урок 1
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 2 -->
+    <a href="lesson2.html" class="menu-lesson" style="top: 176px;">
+        <img src="images/2.svg" height="40" width="40">
+        Урок 2
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 3 -->
+    <a href="lesson3.html" class="menu-lesson" style="top: 254px;">
+        <img src="images/3.svg" height="40" width="40">
+        Урок 3
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 4 -->
+    <a href="lesson4.html" class="menu-lesson" style="top: 332px;">
+        <img src="images/4.svg" height="40" width="40">
+        Урок 4
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 5 -->
+    <a href="lesson5.html" class="menu-lesson" style="top: 410px;">
+        <img src="images/5.svg" height="40" width="40">
+        Урок 5
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 6 -->
+    <a href="lesson6.html" class="menu-lesson" style="top: 488px;">
+        <img src="images/6.svg" height="40" width="40">
+        Урок 6
+        <div class="overlay"></div>
+    </a>
+    <!-- УРОК 7 -->
+    <a href="lesson7.html" class="menu-lesson" style="top: 566px;">
+        <img src="images/7.svg" height="40" width="40">
+        Урок 7
+        <div class="overlay-select"></div>
+    </a>
+    <!-- УРОК 8 -->
+    <a href="lesson8.html" class="menu-lesson" style="top: 644px;">
+        <img src="images/8.svg" height="40" width="40">
+        Урок 8
+        <div class="overlay"></div>
+    </a>
+
+    <!-- КОНТЕКСТНАЯ ОБЛАСТЬ --- КОНТЕКСТНАЯ ОБЛАСТЬ --- КОНТЕКСТНАЯ ОБЛАСТЬ -->
+    <div style="background-color: black; margin: 0 0 0 100px; padding: 7px 10px 1px 10px; color: white;">
+        <img src="images/labeJavaScript.png" height="50" width="50" style="float: left; margin: 15px 15px 0 0;">
+        <h1>JavaScript. Уровень 1. Домашняя работа.</h1>
+    </div>
+
+    <!-- УРОК 7. ЗАДАНИЕ 1 -->
+    <div class="work-area">
+        <h2>Урок 7. DOM. Документ и объекты страницы</h2>
+        <h3><b>Задание 1.</b> Шахматная доска.</h3>
+        <p><b>Создать функцию, генерирующую шахматную доску</b>. При этом можно использовать любые <b>html-тэги</b> по своему желанию.<br>
+            Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки.<br>
+            Строки должны нумероваться числами <b>от 1 до 8</b>, столбцы – латинскими буквами <b>A, B, C, D, E, F, G, H</b>.</p>
+        <hr>
+        <!-- РЕШЕНИЕ -->
+        <h3><b>Решение:</b></h3>
+        <p>Итговый код с комментариями:</p>
+        <div style="overflow: scroll;">
+            <img src="images/chess/hw7.1.png" style="display: block; width:1072px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+        </div>
+        <script>
+            var html = "";
+            //Добавляем верхную буквенную нумерация столбца
+            html += "<div  style='float: left; width: 18px; height: 12px;'></div>";
+            for (var j=1; j<=8; j++) {
+                html += "<div style='float: left; width: 50.5px; padding 0px 0; text-align: center; border-bottom: solid 2px black;'>"+ lChess(j) + "</div>";
+            }
+            <!-- Отмена обтекания -->
+            html += "<div style='clear: both;'></div>";
+            <!-- Основное поле -->
+            for (var i=1; i<=8; i++) {
+                html += "<div>";
+                <!-- Цифра поля по вертикали -->
+                html += "<div  style='float: left; padding: 0 5px; line-height: 50px; border-right: solid 2px black;'>" + (9-i) + "</div>";
+                for (var j=1; j<=4; j++) {
+                    if (i%2 == 0) {
+                        //Первый вид сочетания двух клеток (бело-черное поля)
+                        html += "<div style='float: left; height: 50px; width: 50px; background-color: RGB(225, 201, 170);'></div>";
+                        html += "<div style='float: left; height: 50px; width: 50px; background-color: RGB(156, 86, 35);'></div>";
+                    } else {
+                        //Второй вид сочетания двух клеток (черное-белое поля)
+                        html += "<div style='float: left; height: 50px; width: 50px; background-color: RGB(156, 86, 35);'></div>";
+                        html += "<div style='float: left; height: 50px; width: 50px; background-color: RGB(225, 201, 170);'></div>";
+                    }
+                }
+                <!-- Цифра поля по вертикали -->
+                html += "<div  style='float: left; padding: 0 5px; line-height: 50px; border-left: solid 2px black;'>" + (9-i) + "</div>";
+                <!-- Отмена обтекания -->
+                html += "<div style='clear: both;'></div>";
+            }
+            //Добавляем нижнию буквенную нумерация столбца
+            html += "<div  style='float: left; width: 18px; height: 12px;'></div>";
+            for (var j=1; j<=8; j++) {
+                html += "<div style='float: left; width: 50.5px; padding 0px 0; text-align: center; border-top: solid 2px black;'>"+ lChess(j) + "</div>";
+            }
+            ainimationResult(html, "task71"); <!-- Отображение -->
+        </script>
+
+        <!-- Поле вывода доски с обрамлением -->
+        <div id="task71" style="margin-left: 20px; border: solid 2px black; display: inline-block; background-color: RGB(225, 201, 170);"></div>
+
+        <!-- Отступ до следующего задания -->
+        <div style="height: 20px"></div>
+
+    </div>
+    <div style="background-color:#e4e4e4; padding: 15px; margin: 0 0 0 100px;"></div>
+
+    <!-- УРОК 7. ЗАДАНИЕ 2 -->
+    <div class="work-area">
+        <h3><b>Задание 2.</b> Буквы на месте шахматных фигур.</h3>
+        <p><b>Заполнить созданную таблицу буквами, отвечающими за шахматную фигуру</b>, например <b>К-король</b>, <b>Ф – ферзь</b> и тп.<br>
+            Причем все фигуры должны стоять на своих местах и быть соответственно черными и белыми.</p>
+        <hr>
+        <!-- РЕШЕНИЕ -->
+        <h3><b>Решение:</b></h3>
+        <p>Итоговый код с комментариями:</p>
+        <div style="overflow: scroll;">
+            <img src="images/chess/hw7.2.png" style="display: block; width:984px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+        </div>
+        <script>
+            var html = chessBoard();    //html разметка идентичная первому заданию (вынесена в функцию)
+            var positionPiece =
+                      [ ["Rb", "Knb", "Bb", "Qb", "Kb", "Bb", "Knb", "Rb"],
+                        ["Pb", "Pb", "Pb", "Pb", "Pb", "Pb", "Pb", "Pb"],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["Pw", "Pw", "Pw", "Pw", "Pw", "Pw", "Pw", "Pw"],
+                        ["Rw", "Knw", "Bw", "Qw", "Kw", "Bw", "Knw", "Rw"] ];
+
+            <!-- Отображение фигур -->
+            html += "<div style='position:absolute; margin-top: -395px; margin-left: 21px;'>";
+            for (var i=1; i<=8; i++) {
+                for (var j=1; j<=8; j++) {
+                    html += "<div style='float: left; height: 30px; width: 30px; padding: 10px; font-weight: bold; " +
+                            (positionPiece[i-1][j-1].indexOf("b") == -1?"color: white;'>":"color: black;'>") +
+                            positionPiece[i-1][j-1] + "</div>";
+                }
+                html += "<div style='clear: both;'></div>";
+            }
+            html += "</div>";
+
+            ainimationResult(html, "task72"); <!-- Отображение -->
+        </script>
+
+        <!-- Поле вывода доски с обрамлением -->
+        <div id="task72" style="margin-left: 20px; border: solid 2px black; display: inline-block; background-color: RGB(225, 201, 170);"></div>
+
+        <!-- Отступ до следующего задания -->
+        <div style="height: 20px"></div>
+    </div>
+    <div style="background-color:#e4e4e4; padding: 15px; margin: 0 0 0 100px;"></div>
+
+    <!-- УРОК 7. ЗАДАНИЕ 3 -->
+    <div class="work-area">
+        <h3><b>Задание 3.</b> Шахматные фигуры.</h3>
+        <p>Заменить буквы, обозначающие фигуры картинками.</p>
+        <hr>
+        <h3><b>Решение:</b></h3>
+        <p>Итоговый код с комментариями:</p>
+        <div style="overflow: scroll;">
+            <img src="images/chess/hw7.3a.png" style="display: block; width:700px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+        </div>
+        <p>Функция выбора фигуры:</p>
+        <div style="overflow: scroll;">
+            <img src="images/chess/hw7.3b.png" style="display: block; width:700px;  margin: 10px auto 20px 15px; border-left: solid 3px RGB(236, 207, 65);">
+        </div>
+
+        <script>
+            var html = chessBoard();    //html разметка идентичная первому заданию (вынесена в функцию)
+            var positionPiece =
+                    [   ["Rb", "Knb", "Bb", "Qb", "Kb", "Bb", "Knb", "Rb"],
+                        ["Pb", "Pb", "Pb", "Pb", "Pb", "Pb", "Pb", "Pb"],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
+                        ["Pw", "Pw", "Pw", "Pw", "Pw", "Pw", "Pw", "Pw"],
+                        ["Rw", "Knw", "Bw", "Qw", "Kw", "Bw", "Knw", "Rw"] ];
+
+            <!-- Отображение фигур -->
+            html += "<div style='position:absolute; margin-top: -395px; margin-left: 21px;'>";
+            for (var i=1; i<=8; i++) {
+                for (var j=1; j<=8; j++) {
+                    html += "<div style='float: left; height: 46px; width: 38px; padding: 2px 6px;'>" +
+                            chessPieceHTML(positionPiece[i-1][j-1]) +
+                            "</div>";
+                }
+                html += "<div style='clear: both;'></div>";
+            }
+            html += "</div>";
+
+            ainimationResult(html, "task73"); <!-- Отображение -->
+        </script>
+
+        <!-- Поле вывода доски с обрамлением -->
+        <div id="task73" style="margin-left: 20px; border: solid 2px black; display: inline-block; background-color: RGB(225, 201, 170);"></div>
+
+        <!-- Отступ до следующего задания -->
+        <div style="height: 20px"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="background-color: black; margin: 0 0 0 100px; padding: 15px; font-family: 'PT Sans', sans-serif; color:white">
+        <span style="font-size: 12px;;">Copyright &copy; Aйрат Нурутдинов</span>
+        <a href="mailto:airatn.gmail.com">
+            <span style="float: right; font-size: 12px; padding-right: 30px; text-decoration: none; color: white;">Для контактов</span>
+            <img src="images/email.svg" width="25" style="float: right; margin-right: 10px;">
+        </a>
+    </div>
+</body>
+</html>
